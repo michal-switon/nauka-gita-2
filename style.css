@@ -1,0 +1,13 @@
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+h2 {
+    text-transform: uppercase;
+}
