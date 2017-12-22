@@ -6,7 +6,16 @@
   "scripts": {
     "test": "npm run test:html",
     "test:html": "glob-run nu-html-checker *.html",
-    "init-project": "mkdir -p sass css vendor images js && touch README.md index.html sass/style.scss js/script.js && curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore && npm install"
+    "init-project": "npm run init:dirs && npm run init:files && npm run init:gitignore && npm run init:npm-install",
+    "init:dirs": "mkdir -p sass css vendor images js",
+    "init:files": "touch README.md index.html sass/style.scss js/script.js",
+    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
+    "init:npm-install": "npm install",
+  
+    "build": "npm run build:sass && npm run build:autoprefixer && npm run test",
+    "build:sass": "node-sass --output-style compact -o css sass",
+    "build:sass:dev": "node-sass --output-style expanded --source-map true -o css sass",
+    "build:autoprefixer": "autoprefixer-cli css/style.css"
   },
   "repository": {
     "type": "git",
