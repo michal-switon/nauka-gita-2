@@ -14,6 +14,7 @@
     "build": "npm run build:clean && npm run build:sass && npm run build:autoprefixer && npm run test",
     "build:sass": "node-sass --output-style compact -o css sass",
     "build:sass:dev": "node-sass --output-style expanded --source-map true -o css sass",
+    "build:clean": "rm -rf *.css",
     "build:autoprefixer": "autoprefixer-cli css/style.css",
     "watch": "parallelshell \"npm run watch:sass\" \"npm run watch:autoprefixer\" \"npm run watch:browsersync\" ",
     "watch:sass": "node-sass --output-style expanded --source-map true -o css sass --watch",
